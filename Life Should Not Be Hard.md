@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "LifeShouldNotBeHard"
+title: "Life Should Not Be Hard"
 tags:
   - life
 date-created: 2025-06-15

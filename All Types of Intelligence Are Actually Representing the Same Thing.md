@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "IQ-EQ-KQ-etcAllTheSame"
+title: "All Types of Intelligence Are Actually Representing the Same Thing"
 tags:
   - Ideas
 date-created: 2026-01-12
