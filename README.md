@@ -1,0 +1,2 @@
+- [IQ-EQ-KQ-etc are All The Same](IQ-EQ-KQ-etcAllTheSame)
+- [Life Should Note Be Hard](LifeShouldNotBeHard)
