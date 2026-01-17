@@ -11,6 +11,7 @@ related_notes:
 > [!attention]
 > this is my idea, you can call it philosophy. 
 > BTW I didn’t write it… GPT helped.
+
 # Life Isn’t *Necessarily* Hard
 
 Okay, I'm thinking about life.
