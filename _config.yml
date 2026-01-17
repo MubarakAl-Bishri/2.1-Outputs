@@ -1,1 +1,2 @@
 theme: jekyll-theme-primer # Or any other official GitHub theme
+remote_theme: pages-themes/primer@v0.2.0
