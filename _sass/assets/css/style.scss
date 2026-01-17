@@ -1,14 +1,57 @@
 ---
 ---
-@import "{{ site.theme }}";
+// This loads the base theme structure first
+@import "jekyll-theme-primer";
 
-// Your custom styles go here
+// DARK THEME OVERRIDES
 body {
-  font-family: 'Inter', sans-serif;
-  color: #333;
-  background-color: #f4f4f4;
+  background-color: #1a1a1a !important;
+  color: #dcddde !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  line-height: 1.6 !important;
 }
 
-h1, h2, h3 {
-  color: #2c3e50;
+// Ensure the main container doesn't have a white background
+.container-lg, .main-content, .wrapper {
+  background-color: #1a1a1a !important;
+  max-width: 850px !important;
+  border: none !important;
+}
+
+// Headings
+h1, h2, h3, h4 {
+  color: #ffffff !important;
+  border-bottom: 1px solid #3e3e3e !important;
+  padding-bottom: 0.3em !important;
+}
+
+// Links
+a {
+  color: #75baff !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+// Code Blocks (Obsidian Style)
+code, pre {
+  background-color: #2f2f2f !important;
+  color: #e6e6e6 !important;
+  border-radius: 4px !important;
+}
+
+pre {
+  padding: 16px !important;
+  border: 1px solid #444 !important;
+}
+
+// Blockquotes (Callout style)
+blockquote {
+  border-left: 4px solid #4a9eff !important;
+  background-color: #252525 !important;
+  color: #b0b0b0 !important;
+  padding: 10px 20px !important;
+  margin-left: 0 !important;
 }
