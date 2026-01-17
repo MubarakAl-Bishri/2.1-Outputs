@@ -27,7 +27,7 @@ h1, h2, h3, h4 {
 
 // Links
 a {
-  color: #75baff !important;
+  color: #7216af !important;
   text-decoration: none !important;
 }
 
@@ -54,4 +54,27 @@ blockquote {
   color: #b0b0b0 !important;
   padding: 10px 20px !important;
   margin-left: 0 !important;
+}
+/* Style the dynamic list */
+ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+li {
+  margin-bottom: 10px !important;
+  padding: 8px !important;
+  background: #252525 !important; /* Slightly lighter than the background */
+  border-radius: 6px !important;
+  transition: transform 0.2s ease !important;
+}
+
+li:hover {
+  transform: translateX(5px) !important;
+  background: #333 !important;
+}
+
+li a {
+  display: block !important;
+  font-weight: 500 !important;
 }
