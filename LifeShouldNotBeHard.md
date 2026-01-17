@@ -7,7 +7,7 @@ date-created: 2025-06-15
 toReview: True
 related_notes:
 ---
----
+
 > [!attention]
 > this is my idea, you can call it philosophy. 
 > BTW I didn’t write it… GPT helped.
