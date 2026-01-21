@@ -8,5 +8,3 @@
 </ul>
 
 
-> You can create branches and add things to review them, select what you show and what to not, and more. 
-> Costume CSS to matchs Obsidian theme. Like callouts.
