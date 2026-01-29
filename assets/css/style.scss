@@ -1,11 +1,12 @@
 ---
 ---
+// 1. Load the base theme
 @import "jekyll-theme-primer";
 
-// 1. IMPORT FONTS
+// 2. Import Fonts
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;500;700&family=Inter:wght@400;700&display=swap');
 
-// 2. DEFINE THE COLORS
+// 3. Variables
 :root {
   --bg-color: #121212;
   --card-bg: #1e1e1e;
@@ -15,18 +16,16 @@
   --secret-red: #8b0000;   
 }
 
-// 3. GLOBAL STYLES
+// 4. Global Body
 body {
   font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
   background-color: var(--bg-color) !important;
   background-image: radial-gradient(circle at center, #1e1e1e 0%, #121212 100%) !important;
   color: var(--text-primary) !important;
   line-height: 1.8 !important;
-  text-align: start !important;
 }
 
-// 4. THE GOLDEN BORDER FIX
-// We target the main container provided by the Primer theme
+// 5. Container & Fixed Left Border
 .container-lg, .main-content, .wrapper {
   background-color: var(--card-bg) !important;
   max-width: 850px !important;
@@ -35,68 +34,75 @@ body {
   border-radius: 12px !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
 
-  /* This is the golden border - it follows the language direction */
-  border-inline-start: 4px solid var(--accent-color) !important;
+  /* FIXED BORDER ON THE LEFT */
+  border-left: 4px solid var(--accent-color) !important;
   border-right: none !important;
-  border-left: none !important;
 }
 
-// 5. TYPOGRAPHY & TITLES
+// 6. Typography & Dynamic Text Alignment
+h1, h2, h3, h4, p, li {
+  /* Text still aligns dynamically: Left for EN, Right for AR */
+  text-align: start !important;
+}
+
 h1, h2, h3 {
   font-family: 'Amiri', serif !important;
   color: #ffffff !important;
   border-bottom: 1px solid #333 !important;
   padding-bottom: 0.3em !important;
-  text-align: start !important;
 }
 
 p {
   font-size: 1.15rem !important;
   color: var(--text-secondary) !important;
-  text-align: start !important;
 }
 
-// 6. LIST STYLING
-ul { list-style: none !important; padding: 0 !important; }
+// 7. List Styling (All Notes Section)
+ul {
+  list-style: none !important;
+  padding: 0 !important;
+}
 
 li {
   margin-bottom: 10px !important;
   padding: 12px !important;
   background: #252525 !important;
   border-radius: 6px !important;
-  border-inline-start: 4px solid transparent; 
+  /* Hover border also stays on the left */
+  border-left: 3px solid transparent; 
   transition: all 0.2s ease !important;
-  text-align: start !important;
 }
 
 li:hover {
   background: #2a2a2a !important;
-  border-inline-start: 4px solid var(--accent-color);
-  transform: scale(1.01) !important; 
+  border-left: 3px solid var(--accent-color);
+  transform: translateX(5px) !important; 
 }
 
-li a { color: var(--accent-color) !important; text-decoration: none !important; }
+li a {
+  color: var(--accent-color) !important;
+  text-decoration: none !important;
+  display: block;
+}
 
 li a:hover {
   color: #ffffff !important;
-}
+} 
 
-// 8. Blockquotes & Code
+// 8. Blockquotes
 blockquote {
-  /* Red accent for quotes, also follows language direction */
-  border-inline-start: 4px solid var(--secret-red) !important;
+  border-left: 4px solid var(--secret-red) !important;
   border-right: none !important;
-  border-left: none !important;
   background-color: #1a1a1a !important;
   padding: 15px 25px !important;
-  margin: 20px 0 !important;
   color: #999 !important;
 }
 
+// 9. Code blocks (Uncommented and fixed)
 code, pre {
   background-color: #000000 !important;
   color: #d4af37 !important;
-  /* Code blocks should always be Left-to-Right regardless of note language */
   direction: ltr !important;
   text-align: left !important;
+  display: inline-block;
 }
