@@ -104,5 +104,8 @@ code, pre {
   color: #d4af37 !important;
   direction: ltr !important;
   text-align: left !important;
-  display: inline-block;
+  display: block;
+  padding: 10px !important;
+  border-radius: 4px !important;
+  overflow-x: auto !important;
 }

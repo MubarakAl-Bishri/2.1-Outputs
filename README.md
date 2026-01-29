@@ -1,9 +1,15 @@
-<!-- # All Notes -->
+---
+layout: default
+title: All Notes
+---
+
+# All Notes
+
 <ul>
-  {% for post in site.pages %}
-    {% if post.title and post.url != "/" and post.layout != nil %}
+  {% for page in site.pages %}
+    {% if page.title and page.url != "/" and page.layout != nil %}
       <li dir="auto">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
       </li>
     {% endif %}
   {% endfor %}
