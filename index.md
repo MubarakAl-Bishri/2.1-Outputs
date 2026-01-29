@@ -1,10 +1,6 @@
-title: All Notes
-
 ---
-
 layout: default
 title: All Notes
-
 ---
 
 # All Notes
