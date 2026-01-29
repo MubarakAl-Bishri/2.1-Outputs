@@ -1,5 +1,6 @@
 ---
 layout: default
+fileName: All_Intelligence_Types_are_the_Same_Thing
 title: "All Types of Intelligence Are Actually Representing the Same Thing"
 tags:
   - Ideas
