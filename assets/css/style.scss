@@ -71,19 +71,21 @@ ul {
 }
 
 li {
+  display: block;
   margin-bottom: 10px !important;
   padding: 12px !important;
   background: #252525 !important;
   border-radius: 6px !important;
-  border-inline-start: 4px solid transparent; /* Logical border */
+  
+  /* Use logical border: it goes to the right for AR and left for EN */
+  border-inline-start: 4px solid transparent; 
   transition: all 0.2s ease !important;
-  text-align: start; /* CRITICAL: Aligns text based on dir="auto" */
 }
 
 li:hover {
   background: #2a2a2a !important;
   border-inline-start: 4px solid var(--accent-color);
-  /* Use a slight lift instead of translateX to avoid logic issues in mixed RTL/LTR */
+  /* Use scale instead of translate to avoid directional conflicts */
   transform: scale(1.01) !important; 
 }
 
