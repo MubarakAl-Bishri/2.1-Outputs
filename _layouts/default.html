@@ -9,17 +9,16 @@
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       <div id="content-wrapper" dir="auto">
-        {% unless page.url == "/" or page.path == "index.md" %}
-          <div dir="ltr">
-            <a href="{{ '/' | relative_url }}" class="back-button">← Back to Home</a>
-          </div>
-        {% endunless %}
-
         {% if page.title and page.url != "/" and page.path != "index.md" %}
           <h1>{{ page.title }}</h1>
         {% endif %}
 
         {{ content }}
+        {% unless page.url == "/" or page.path == "index.md" %}
+          <div dir="ltr">
+            <a href="{{ '/' | relative_url }}" class="back-button">← Back to Home</a>
+          </div>
+        {% endunless %}
       </div>
     </div>
   </body>
