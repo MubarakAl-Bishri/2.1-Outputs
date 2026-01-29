@@ -1,67 +1,63 @@
 ---
 ---
-// 1. Load the base theme
 @import "jekyll-theme-primer";
 
-// 2. Import Fonts (Amiri for headings, Noto Sans for Arabic, Inter for English)
+// 1. IMPORT FONTS
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;500;700&family=Inter:wght@400;700&display=swap');
 
-// 3. Define the Color Palette
+// 2. DEFINE THE COLORS
 :root {
   --bg-color: #121212;
   --card-bg: #1e1e1e;
   --text-primary: #e0e0e0;
   --text-secondary: #b0b0b0;
-  --accent-color: #d4af37; // Gold
-  --secret-red: #8b0000;   // Deep Red
+  --accent-color: #d4af37; 
+  --secret-red: #8b0000;   
 }
 
-// 4. Global Body & Typography
+// 3. GLOBAL STYLES
 body {
-  font-family: 'Noto Sans Arabic', 'Inter', -apple-system, sans-serif !important;
+  font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
   background-color: var(--bg-color) !important;
   background-image: radial-gradient(circle at center, #1e1e1e 0%, #121212 100%) !important;
   color: var(--text-primary) !important;
   line-height: 1.8 !important;
-  /* Resetting fixed directions to allow dir="auto" to work */
   text-align: start !important;
 }
 
-// 5. Container & Layout
+// 4. THE GOLDEN BORDER FIX
+// We target the main container provided by the Primer theme
 .container-lg, .main-content, .wrapper {
   background-color: var(--card-bg) !important;
-  max-width: 800px !important;
+  max-width: 850px !important;
   margin: 40px auto !important;
   padding: 40px !important;
   border-radius: 12px !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
 
-  /* Logical Border: Inline-start becomes Right for AR and Left for EN */
+  /* This is the golden border - it follows the language direction */
   border-inline-start: 4px solid var(--accent-color) !important;
   border-right: none !important;
   border-left: none !important;
 }
 
-// 6. Headers & Paragraphs
-h1, h2, h3, h4 {
+// 5. TYPOGRAPHY & TITLES
+h1, h2, h3 {
   font-family: 'Amiri', serif !important;
   color: #ffffff !important;
   border-bottom: 1px solid #333 !important;
-  padding-bottom: 10px !important;
-  text-align: start !important; // Follows the language direction
+  padding-bottom: 0.3em !important;
+  text-align: start !important;
 }
 
 p {
   font-size: 1.15rem !important;
   color: var(--text-secondary) !important;
-  text-align: start !important; // Follows the language direction
+  text-align: start !important;
 }
 
-// 7. Interactive List (All Notes Section)
-ul {
-  list-style: none !important;
-  padding: 0 !important;
-}
+// 6. LIST STYLING
+ul { list-style: none !important; padding: 0 !important; }
 
 li {
   margin-bottom: 10px !important;
@@ -70,20 +66,16 @@ li {
   border-radius: 6px !important;
   border-inline-start: 4px solid transparent; 
   transition: all 0.2s ease !important;
-  text-align: start !important; // Critical for the dir="auto" items
+  text-align: start !important;
 }
 
 li:hover {
   background: #2a2a2a !important;
   border-inline-start: 4px solid var(--accent-color);
-  transform: scale(1.01) !important; // Clean lift effect
+  transform: scale(1.01) !important; 
 }
 
-li a {
-  color: var(--accent-color) !important;
-  text-decoration: none !important;
-  display: block;
-}
+li a { color: var(--accent-color) !important; text-decoration: none !important; }
 
 li a:hover {
   color: #ffffff !important;
