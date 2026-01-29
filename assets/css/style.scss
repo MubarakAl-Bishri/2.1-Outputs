@@ -1,74 +1,66 @@
 ---
 ---
-// This loads the base theme structure
+// 1. Load the base theme
 @import "jekyll-theme-primer";
 
-// 1. IMPORT FONTS
+// 2. Import Fonts (Amiri for headings, Noto Sans for Arabic, Inter for English)
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;500;700&family=Inter:wght@400;700&display=swap');
 
-// 2. VARIABLES
+// 3. Define the Color Palette
 :root {
   --bg-color: #121212;
   --card-bg: #1e1e1e;
   --text-primary: #e0e0e0;
   --text-secondary: #b0b0b0;
-  --accent-color: #d4af37; 
-  --secret-red: #8b0000;   
+  --accent-color: #d4af37; // Gold
+  --secret-red: #8b0000;   // Deep Red
 }
 
-// 3. GLOBAL STYLES
+// 4. Global Body & Typography
 body {
-  /* REMOVED hardcoded direction: rtl */
-  font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
-  
+  font-family: 'Noto Sans Arabic', 'Inter', -apple-system, sans-serif !important;
   background-color: var(--bg-color) !important;
   background-image: radial-gradient(circle at center, #1e1e1e 0%, #121212 100%) !important;
   color: var(--text-primary) !important;
   line-height: 1.8 !important;
+  /* Resetting fixed directions to allow dir="auto" to work */
+  text-align: start !important;
 }
 
-// 4. CONTAINER & LAYOUT
+// 5. Container & Layout
 .container-lg, .main-content, .wrapper {
   background-color: var(--card-bg) !important;
   max-width: 800px !important;
   margin: 40px auto !important;
   padding: 40px !important;
   border-radius: 12px !important;
-  /* Use logical border so it appears on the correct side for the page language */
-  border-inline-start: 4px solid var(--accent-color) !important; 
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+
+  /* Logical Border: Inline-start becomes Right for AR and Left for EN */
+  border-inline-start: 4px solid var(--accent-color) !important;
+  border-right: none !important;
+  border-left: none !important;
 }
 
-// 5. TYPOGRAPHY
-h1, h2, h3 {
+// 6. Headers & Paragraphs
+h1, h2, h3, h4 {
   font-family: 'Amiri', serif !important;
   color: #ffffff !important;
   border-bottom: 1px solid #333 !important;
   padding-bottom: 10px !important;
-  text-align: start; /* Aligns based on language */
+  text-align: start !important; // Follows the language direction
 }
 
 p {
   font-size: 1.15rem !important;
   color: var(--text-secondary) !important;
-  text-align: start; /* Better than justify for mixed-language lists */
+  text-align: start !important; // Follows the language direction
 }
 
-// 6. LINKS & INTERACTIVE ELEMENTS
-a {
-  color: var(--accent-color) !important;
-  text-decoration: none !important;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #ffffff !important;
-}
-
-// 7. LIST STYLING (The "All Notes" section)
+// 7. Interactive List (All Notes Section)
 ul {
   list-style: none !important;
-  padding: 0 !important; 
+  padding: 0 !important;
 }
 
 li {
@@ -76,38 +68,43 @@ li {
   padding: 12px !important;
   background: #252525 !important;
   border-radius: 6px !important;
-  border-inline-start: 4px solid transparent; /* Logical border */
+  border-inline-start: 4px solid transparent; 
   transition: all 0.2s ease !important;
-  text-align: start; /* CRITICAL: Aligns text based on dir="auto" */
+  text-align: start !important; // Critical for the dir="auto" items
 }
 
 li:hover {
   background: #2a2a2a !important;
   border-inline-start: 4px solid var(--accent-color);
-  /* Use a slight lift instead of translateX to avoid logic issues in mixed RTL/LTR */
-  transform: scale(1.01) !important; 
+  transform: scale(1.01) !important; // Clean lift effect
 }
 
-// 8. CODE & BLOCKQUOTES
+li a {
+  color: var(--accent-color) !important;
+  text-decoration: none !important;
+  display: block;
+}
+
+li a:hover {
+  color: #ffffff !important;
+}
+
+// 8. Blockquotes & Code
 blockquote {
+  /* Red accent for quotes, also follows language direction */
   border-inline-start: 4px solid var(--secret-red) !important;
+  border-right: none !important;
+  border-left: none !important;
   background-color: #1a1a1a !important;
   padding: 15px 25px !important;
-  margin-inline-start: 0 !important;
+  margin: 20px 0 !important;
+  color: #999 !important;
 }
 
 code, pre {
   background-color: #000000 !important;
   color: #d4af37 !important;
-  direction: ltr !important; /* Code is always LTR */
-  unicode-bidi: plaintext;
-}
-p, h1, h2, h3, h4, li {
-  /* 'start' means right for Arabic and left for English */
-  text-align: start !important; 
-}
-.container-lg, .main-content, .wrapper {
-  border-inline-start: 4px solid var(--accent-color) !important;
-  border-right: none !important;
-  border-left: none !important;
+  /* Code blocks should always be Left-to-Right regardless of note language */
+  direction: ltr !important;
+  text-align: left !important;
 }
