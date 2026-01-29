@@ -3,7 +3,7 @@ layout: default
 title: All Notes
 ---
 
-<!-- # All Notes -->
+# All Notes
 
 <ul>
   {% assign _seen_urls = "" %}
