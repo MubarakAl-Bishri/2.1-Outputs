@@ -3,7 +3,7 @@ layout: default
 title: All Notes
 ---
 
-# All Notes
+<!-- # All Notes -->
 
 <ul>
   {% if site.notes and site.notes.size > 0 %}
