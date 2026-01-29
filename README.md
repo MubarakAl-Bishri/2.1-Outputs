@@ -1,5 +1,4 @@
-# All Notes
-
+<!-- # All Notes -->
 <ul>
   {% for post in site.pages %}
     {% if post.title and post.url != "/" and post.layout != nil %}
