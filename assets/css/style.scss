@@ -124,7 +124,7 @@ blockquote {
   transform: translateX(-5px) !important;
 }
 
-// 11. Code blocks (Uncommented and fixed)
+// 11. Code blocks
 code, pre {
   background-color: #000000 !important;
   color: #d4af37 !important;
@@ -135,4 +135,105 @@ code, pre {
   border-radius: 4px !important;
   overflow-x: auto !important;
   border-inline-start: 3px solid var(--accent-color) !important;
+}
+
+// -----------------------------------------------------
+// 12. Special Feature: Secret Overlay & Utilities
+// -----------------------------------------------------
+
+/* Highlight utility */
+.highlight { 
+  color: var(--accent-color) !important; 
+  font-weight: 500 !important; 
+}
+
+/* The Trigger Link */
+.secret-trigger {
+  display: block;
+  margin-top: 50px;
+  text-align: center;
+  color: #3e3e3e2d; /* Subtle color as requested */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: 'Amiri', serif;
+}
+
+.secret-trigger:hover {
+  color: var(--secret-red);
+}
+
+/* The Overlay Background */
+#secret-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh;
+  background-color: #050505;
+  display: none; /* Hidden by default */
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 9999; /* Ensure it sits on top of everything */
+  padding: 0; 
+}
+
+/* The Secret Content Card */
+.secret-container {
+  max-width: 750px;
+  width: 90%; 
+  margin: 60px auto; 
+  background-color: #0a0a0a;
+  padding: 50px 30px;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+/* Secret Typography */
+.secret-title {
+  font-family: 'Amiri', serif !important;
+  color: var(--secret-red) !important;
+  font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
+  margin-bottom: 40px !important;
+  text-align: center !important;
+  border-bottom: none !important; /* Overriding global H2 border */
+}
+
+.secret-text {
+  font-family: 'Amiri', serif !important;
+  color: #999 !important;
+  font-size: 1.3rem !important;
+  line-height: 2.2 !important;
+  text-align: justify !important;
+}
+
+.secret-text p {
+  color: #999 !important; /* Ensure paragraph color inside secret is distinct */
+  margin-bottom: 20px !important;
+}
+
+/* Close Button */
+.close-secret {
+  display: block;
+  margin: 60px auto 0;
+  background: transparent;
+  border: 1px solid #333;
+  color: #555;
+  padding: 12px 35px;
+  cursor: pointer;
+  font-family: 'Noto Sans Arabic', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.close-secret:hover {
+  border-color: var(--secret-red);
+  color: var(--secret-red);
+}
+
+/* Mobile Adjustments for Secret Section */
+@media (max-width: 600px) {
+  .secret-container {
+    padding: 30px 20px !important;
+    margin: 20px auto !important;
+  }
 }
