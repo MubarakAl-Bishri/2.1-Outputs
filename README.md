@@ -1,16 +1,13 @@
----
+## title: All Notes
+
 layout: default
 title: All Notes
+published: false
+
 ---
 
-# All Notes
+# All Notes (repository README only)
 
-<ul>
-  {% for page in site.pages %}
-    {% if page.title and page.url != "/" and page.layout != nil %}
-      <li dir="auto">
-        <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
-      </li>
-    {% endif %}
-  {% endfor %}
+This file is the repository README and is excluded from the generated site to avoid duplicate entries.
+
 </ul>

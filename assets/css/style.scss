@@ -35,8 +35,9 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
 
   /* FIXED BORDER ON THE LEFT */
-  border-left: 4px solid var(--accent-color) !important;
-  border-right: none !important;
+  /* Use logical inline borders so RTL/LTR both show the accent */
+  border-inline-start: 4px solid var(--accent-color) !important;
+  border-inline-end: none !important;
 }
 
 // 6. Typography & Dynamic Text Alignment
@@ -68,14 +69,14 @@ li {
   padding: 12px !important;
   background: #252525 !important;
   border-radius: 6px !important;
-  /* Hover border also stays on the left */
-  border-left: 3px solid transparent; 
+  /* Hover border follows text direction (start side) */
+  border-inline-start: 3px solid transparent; 
   transition: all 0.2s ease !important;
 }
 
 li:hover {
   background: #2a2a2a !important;
-  border-left: 3px solid var(--accent-color);
+  border-inline-start: 3px solid var(--accent-color);
   transform: translateX(5px) !important; 
 }
 
@@ -91,8 +92,9 @@ li a:hover {
 
 // 8. Blockquotes
 blockquote {
-  border-left: 4px solid var(--secret-red) !important;
-  border-right: none !important;
+  /* Use logical inline border so blockquotes show on the correct side for RTL */
+  border-inline-start: 4px solid var(--secret-red) !important;
+  border-inline-end: none !important;
   background-color: #1a1a1a !important;
   padding: 15px 25px !important;
   color: #999 !important;
