@@ -7,3 +7,9 @@ defaults:
       layout: "default"
 # url: "https://thoughts.m-albishri.me"
 # baseurl: ""
+
+# Collections for notes - prefer using a collection for consistent note handling
+collections:
+  notes:
+    output: true
+    permalink: /:collection/:path/
