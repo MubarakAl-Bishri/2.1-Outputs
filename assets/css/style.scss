@@ -41,9 +41,10 @@ body {
 }
 
 // 6. Typography & Dynamic Text Alignment
-h1, h2, h3, h4, p, li {
-  /* Text still aligns dynamically: Left for EN, Right for AR */
+h1, h2, h3, h4, p, li, span, div, a {
+  /* Text aligns dynamically: Left for EN, Right for AR */
   text-align: start !important;
+  direction: inherit !important;
 }
 
 h1, h2, h3 {
@@ -103,6 +104,7 @@ blockquote {
 // 9. Content Wrapper
 #content-wrapper {
   display: block;
+  direction: auto !important;
 }
 
 // 10. Back Button
