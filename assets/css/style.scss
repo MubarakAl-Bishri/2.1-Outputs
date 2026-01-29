@@ -20,6 +20,7 @@
 body {
   /* REMOVED hardcoded direction: rtl */
   font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
+  
   background-color: var(--bg-color) !important;
   background-image: radial-gradient(circle at center, #1e1e1e 0%, #121212 100%) !important;
   color: var(--text-primary) !important;
@@ -102,4 +103,13 @@ code, pre {
   color: #d4af37 !important;
   direction: ltr !important; /* Code is always LTR */
   unicode-bidi: plaintext;
+}
+p, h1, h2, h3, h4, li {
+  /* 'start' means right for Arabic and left for English */
+  text-align: start !important; 
+}
+.container-lg, .main-content, .wrapper {
+  border-inline-start: 4px solid var(--accent-color) !important;
+  border-right: none !important;
+  border-left: none !important;
 }
