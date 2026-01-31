@@ -43,7 +43,7 @@ body {
 // 6. Typography & Dynamic Text Alignment
 h1, h2, h3, h4, p, li, span, div, a {
   /* Text aligns dynamically: Left for EN, Right for AR */
-  text-align: start !important;
+  // text-align: start !important;
   direction: inherit !important;
 }
 
