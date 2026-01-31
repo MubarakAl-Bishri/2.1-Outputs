@@ -34,16 +34,17 @@ body {
   border-radius: 12px !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
 
-  /* FIXED BORDER ON THE LEFT (Using Logical Properties) */
+  /* FIXED BORDER ON THE LEFT */
+  /* Use logical inline borders so RTL/LTR both show the accent */
   border-inline-start: 4px solid var(--accent-color) !important;
   border-inline-end: none !important;
 }
 
 // 6. Typography & Dynamic Text Alignment
 h1, h2, h3, h4, p, li, span, div, a {
-  /* Allow text to inherit direction from the parent wrapper */
+  /* Text aligns dynamically: Left for EN, Right for AR */
+  text-align: start !important;
   direction: inherit !important;
-  text-align: inherit !important; 
 }
 
 h1, h2, h3 {
@@ -92,7 +93,7 @@ li a:hover {
 
 // 8. Blockquotes
 blockquote {
-  /* Logical border allows it to flip automatically */
+  /* Use logical inline border so blockquotes show on the correct side for RTL */
   border-inline-start: 4px solid var(--secret-red) !important;
   border-inline-end: none !important;
   background-color: #1a1a1a !important;
@@ -100,35 +101,10 @@ blockquote {
   color: #999 !important;
 }
 
-// -----------------------------------------------------
-// 9. Content Wrapper (THE FIX IS HERE)
-// -----------------------------------------------------
+// 9. Content Wrapper
 #content-wrapper {
   display: block;
-  
-  // Default for LTR pages
-  text-align: left; 
-
-  // Specific Overrides for RTL Pages
-  // This targets <div id="content-wrapper" dir="rtl">
-  &[dir="rtl"] {
-    text-align: right !important;
-    direction: rtl !important;
-
-    // Ensure Lists indent correctly on the right
-    ul, ol {
-      padding-right: 2em !important;
-      padding-left: 0 !important;
-      text-align: right !important;
-    }
-
-    // Ensure Blockquotes border is on the right
-    blockquote {
-      border-left: none !important;
-      border-right: 4px solid var(--secret-red) !important;
-      text-align: right !important;
-    }
-  }
+  // direction: auto !important;
 }
 
 // 10. Back Button
@@ -147,24 +123,20 @@ blockquote {
 .back-button:hover {
   background-color: #2a2a2a !important;
   color: #ffffff !important;
-  // Use logical property for transform if possible, otherwise keep simple
   transform: translateX(-5px) !important;
 }
 
-// 11. Code blocks (FORCE LTR ALWAYS)
+// 11. Code blocks
 code, pre {
   background-color: #000000 !important;
   color: #d4af37 !important;
-  
-  // Code must always be LTR, even on Arabic pages
-  direction: ltr !important; 
+  // direction: ltr !important;
   text-align: left !important;
-  
   display: block;
   padding: 10px !important;
   border-radius: 4px !important;
   overflow-x: auto !important;
-  border-left: 3px solid var(--accent-color) !important; // Always on left for code
+  border-inline-start: 3px solid var(--accent-color) !important;
 }
 
 // -----------------------------------------------------
@@ -182,7 +154,7 @@ code, pre {
   display: block;
   margin-top: 50px;
   text-align: center;
-  color: #3e3e3e2d; 
+  color: #3e3e3e2d; /* Subtle color as requested */
   cursor: pointer;
   transition: color 0.3s ease;
   font-family: 'Amiri', serif;
@@ -200,10 +172,10 @@ code, pre {
   width: 100vw; 
   height: 100vh;
   background-color: #050505;
-  display: none; 
+  display: none; /* Hidden by default */
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: 9999; 
+  z-index: 9999; /* Ensure it sits on top of everything */
   padding: 0; 
 }
 
@@ -226,7 +198,7 @@ code, pre {
   font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
   margin-bottom: 40px !important;
   text-align: center !important;
-  border-bottom: none !important; 
+  border-bottom: none !important; /* Overriding global H2 border */
 }
 
 .secret-text {
@@ -238,7 +210,7 @@ code, pre {
 }
 
 .secret-text p {
-  color: #999 !important; 
+  color: #999 !important; /* Ensure paragraph color inside secret is distinct */
   margin-bottom: 20px !important;
 }
 
