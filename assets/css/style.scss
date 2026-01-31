@@ -47,6 +47,12 @@ h1, h2, h3, h4, p, li, span, div, a {
   direction: inherit !important;
 }
 
+/* Override markdown-body LTR forcing */
+.markdown-body {
+  direction: inherit !important;
+  text-align: start !important;
+}
+
 h1, h2, h3 {
   font-family: 'Amiri', serif !important;
   color: #ffffff !important;
@@ -130,7 +136,7 @@ blockquote {
 code, pre {
   background-color: #000000 !important;
   color: #d4af37 !important;
-  // direction: ltr !important;
+  direction: ltr !important;
   text-align: left !important;
   display: block;
   padding: 10px !important;
