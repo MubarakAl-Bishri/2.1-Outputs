@@ -1,6 +1,7 @@
 ---
 layout: default
 title: All Notes
+direction: "ltr"
 ---
 
 <h1 id="all-notes">All Notes</h1>
@@ -24,12 +25,12 @@ title: All Notes
       {% endif %}
     {% endfor %}
 
-  {% else %}
-    {% for item in site.pages %}
-      {% if item.title and item.url != "/" and item.layout != nil and item.published != false and item.path != "README.md" %}
-        {% assign item_url = item.url | relative_url %}
-        {% unless _seen_urls contains item_url %}
-          
+{% else %}
+{% for item in site.pages %}
+{% if item.title and item.url != "/" and item.layout != nil and item.published != false and item.path != "README.md" %}
+{% assign item_url = item.url | relative_url %}
+{% unless _seen_urls contains item_url %}
+
           <li dir="{{ item.direction | default: 'auto' }}">
             <a href="{{ item_url }}">{{ item.title }}</a>
           </li>
@@ -38,5 +39,7 @@ title: All Notes
         {% endunless %}
       {% endif %}
     {% endfor %}
-  {% endif %}
+
+{% endif %}
+
 </ul>
