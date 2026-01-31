@@ -1,7 +1,7 @@
 ---
 layout: default
 fileName: I_Felt_Lost
-dir: "rtl"
+direction: "rtl"
 title: "شعرت بالضياع"
 tags:
   -

@@ -9,7 +9,7 @@
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       
-      <div id="content-wrapper" dir="{{ page.dir | default: 'auto' }}">
+      <div id="content-wrapper" dir="{{ page.direction | default: 'auto' }}">
         
         {% if page.title and page.url != "/" and page.path != "index.md" %}
           <h1>{{ page.title }}</h1>
@@ -18,7 +18,7 @@
         {{ content }}
 
         {% unless page.url == "/" or page.path == "index.md" %}
-          <div dir="ltr" style="margin-top: 2rem;">
+          <div dir="ltr" style="margin-top: 2rem; text-align: left;">
             <a href="{{ '/' | relative_url }}" class="back-button">← Back to Home</a>
           </div>
         {% endunless %}
