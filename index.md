@@ -16,7 +16,7 @@ direction: "ltr"
         {% assign note_url = note.url | relative_url %}
         {% unless _seen_urls contains note_url %}
           
-          <li dir="{{ note.direction | default: 'auto' }}">
+          <li>
             <a href="{{ note_url }}">{{ note.title }}</a>
           </li>
 
@@ -31,7 +31,7 @@ direction: "ltr"
 {% assign item_url = item.url | relative_url %}
 {% unless _seen_urls contains item_url %}
 
-          <li dir="{{ item.direction | default: 'auto' }}">
+          <li>
             <a href="{{ item_url }}">{{ item.title }}</a>
           </li>
 
