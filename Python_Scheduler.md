@@ -8,7 +8,6 @@ date-created: 2026-01-28
 toReview: True
 related_notes:
 ---
----
 Main python script that runs subscripts on a specific event, I prefer to make [[Hardcoding]]ed. Make more then one [[requirements.txt]] file, one for each subscript in addition to the main script.
 The main tool to run a subscript is to use the OS lib. 
 If there is a small package or any additional files it is preferred to make a folder for it.
