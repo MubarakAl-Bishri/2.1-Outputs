@@ -1,6 +1,7 @@
 ---
 layout: default
 fileName: Python_Scheduler
+dir: ltr
 title: "Python Scheduler"
 tags:
   -
