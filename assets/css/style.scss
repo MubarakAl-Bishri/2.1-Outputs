@@ -31,17 +31,24 @@ body {
   padding: 40px !important;
   border-radius: 12px !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
-
-  /* FIXED BORDER ON THE LEFT (Using Logical Properties) */
   border-inline-start: 4px solid var(--accent-color) !important;
   border-inline-end: none !important;
 }
 
-// 6. Typography & Dynamic Text Alignment
-h1, h2, h3, h4, p, li, span, div, a {
-  /* Allow text to inherit direction from the parent wrapper */
-  direction: inherit !important;
-  text-align: inherit !important; 
+// 6. Dynamic Text Alignment Override
+// This forces children to respect the 'dir' attribute set in HTML
+[dir="rtl"] {
+  text-align: right !important;
+  h1, h2, h3, h4, p, li, span, a {
+    text-align: right !important;
+  }
+}
+
+[dir="ltr"] {
+  text-align: left !important;
+  h1, h2, h3, h4, p, li, span, a {
+    text-align: left !important;
+  }
 }
 
 h1, h2, h3 {
@@ -56,7 +63,7 @@ p {
   color: var(--text-secondary) !important;
 }
 
-// 7. List Styling (All Notes Section)
+// 7. List Styling
 ul {
   list-style: none !important;
   padding: 0 !important;
@@ -67,7 +74,6 @@ li {
   padding: 12px !important;
   background: #252525 !important;
   border-radius: 6px !important;
-  /* Hover border follows text direction (start side) */
   border-inline-start: 3px solid transparent; 
   transition: all 0.2s ease !important;
 }
@@ -84,13 +90,8 @@ li a {
   display: block;
 }
 
-li a:hover {
-  color: #ffffff !important;
-} 
-
 // 8. Blockquotes
 blockquote {
-  /* Logical border allows it to flip automatically */
   border-inline-start: 4px solid var(--secret-red) !important;
   border-inline-end: none !important;
   background-color: #1a1a1a !important;
@@ -98,170 +99,15 @@ blockquote {
   color: #999 !important;
 }
 
-// -----------------------------------------------------
-// 9. Content Wrapper (THE FIX IS HERE)
-// -----------------------------------------------------
-#content-wrapper {
-  display: block;
-  
-  // Default for LTR pages
-  text-align: left; 
-
-  // Specific Overrides for RTL Pages
-  // This targets <div id="content-wrapper" dir="rtl">
-  &[dir="rtl"] {
-    text-align: right !important;
-    direction: rtl !important;
-
-    // Ensure Lists indent correctly on the right
-    ul, ol {
-      padding-right: 2em !important;
-      padding-left: 0 !important;
-      text-align: right !important;
-    }
-
-    // Ensure Blockquotes border is on the right
-    blockquote {
-      border-left: none !important;
-      border-right: 4px solid var(--secret-red) !important;
-      text-align: right !important;
-    }
-  }
-}
-
-// 10. Back Button
-.back-button {
-  display: inline-block;
-  margin-bottom: 20px !important;
-  padding: 8px 16px !important;
-  background-color: #252525 !important;
-  color: var(--accent-color) !important;
-  text-decoration: none !important;
-  border-radius: 4px !important;
-  transition: all 0.2s ease !important;
-  border-inline-start: 2px solid var(--accent-color) !important;
-}
-
-.back-button:hover {
-  background-color: #2a2a2a !important;
-  color: #ffffff !important;
-  // Use logical property for transform if possible, otherwise keep simple
-  transform: translateX(-5px) !important;
-}
-
-// 11. Code blocks (FORCE LTR ALWAYS)
+// 9. Code blocks - Always LTR
 code, pre {
   background-color: #000000 !important;
   color: #d4af37 !important;
-  
-  // Code must always be LTR, even on Arabic pages
-  direction: ltr !important; 
+  direction: ltr !important;
   text-align: left !important;
-  
   display: block;
   padding: 10px !important;
   border-radius: 4px !important;
   overflow-x: auto !important;
-  border-left: 3px solid var(--accent-color) !important; // Always on left for code
-}
-
-// -----------------------------------------------------
-// 12. Special Feature: Secret Overlay & Utilities
-// -----------------------------------------------------
-
-/* Highlight utility */
-.highlight { 
-  color: var(--accent-color) !important; 
-  font-weight: 500 !important; 
-}
-
-/* The Trigger Link */
-.secret-trigger {
-  display: block;
-  margin-top: 50px;
-  text-align: center;
-  color: #3e3e3e2d; 
-  cursor: pointer;
-  transition: color 0.3s ease;
-  font-family: 'Amiri', serif;
-}
-
-.secret-trigger:hover {
-  color: var(--secret-red);
-}
-
-/* The Overlay Background */
-#secret-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw; 
-  height: 100vh;
-  background-color: #050505;
-  display: none; 
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 9999; 
-  padding: 0; 
-}
-
-/* The Secret Content Card */
-.secret-container {
-  max-width: 750px;
-  width: 90%; 
-  margin: 60px auto; 
-  background-color: #0a0a0a;
-  padding: 50px 30px;
-  border: 1px solid #1a1a1a;
-  border-radius: 8px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.8);
-}
-
-/* Secret Typography */
-.secret-title {
-  font-family: 'Amiri', serif !important;
-  color: var(--secret-red) !important;
-  font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
-  margin-bottom: 40px !important;
-  text-align: center !important;
-  border-bottom: none !important; 
-}
-
-.secret-text {
-  font-family: 'Amiri', serif !important;
-  color: #999 !important;
-  font-size: 1.3rem !important;
-  line-height: 2.2 !important;
-  text-align: justify !important;
-}
-
-.secret-text p {
-  color: #999 !important; 
-  margin-bottom: 20px !important;
-}
-
-/* Close Button */
-.close-secret {
-  display: block;
-  margin: 60px auto 0;
-  background: transparent;
-  border: 1px solid #333;
-  color: #555;
-  padding: 12px 35px;
-  cursor: pointer;
-  font-family: 'Noto Sans Arabic', sans-serif;
-  transition: all 0.3s ease;
-}
-
-.close-secret:hover {
-  border-color: var(--secret-red);
-  color: var(--secret-red);
-}
-
-/* Mobile Adjustments for Secret Section */
-@media (max-width: 600px) {
-  .secret-container {
-    padding: 30px 20px !important;
-    margin: 20px auto !important;
-  }
+  border-inline-start: 3px solid var(--accent-color) !important;
 }
