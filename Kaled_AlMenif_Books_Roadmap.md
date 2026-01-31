@@ -2,7 +2,7 @@
 layout: default
 fileName: Kaled_AlMenif_Books_Roadmap
 title: "أدب الزلزال، مشروع عبد الرحمن منيف الروائي"
-dir: rtl
+dir: "rtl"
 tags:
   - AIOUT
 date-created: 2026-01-21

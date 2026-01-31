@@ -104,7 +104,7 @@ blockquote {
 // 9. Content Wrapper
 #content-wrapper {
   display: block;
-  direction: auto !important;
+  // direction: auto !important;
 }
 
 // 10. Back Button
@@ -130,7 +130,7 @@ blockquote {
 code, pre {
   background-color: #000000 !important;
   color: #d4af37 !important;
-  direction: ltr !important;
+  // direction: ltr !important;
   text-align: left !important;
   display: block;
   padding: 10px !important;
