@@ -53,6 +53,15 @@ h1, h2, h3, h4, p, li, span, div, a {
   text-align: start !important;
 }
 
+/* Ensure all elements respect page direction */
+html {
+  direction: inherit !important;
+}
+
+body {
+  direction: inherit !important;
+}
+
 h1, h2, h3 {
   font-family: 'Amiri', serif !important;
   color: #ffffff !important;
@@ -69,6 +78,7 @@ p {
 ul {
   list-style: none !important;
   padding: 0 !important;
+  direction: inherit !important;
 }
 
 li {
@@ -79,6 +89,8 @@ li {
   /* Hover border follows text direction (start side) */
   border-inline-start: 3px solid transparent; 
   transition: all 0.2s ease !important;
+  direction: inherit !important;
+  text-align: start !important;
 }
 
 li:hover {
@@ -124,6 +136,8 @@ blockquote {
   border-radius: 4px !important;
   transition: all 0.2s ease !important;
   border-inline-start: 2px solid var(--accent-color) !important;
+  direction: ltr !important;
+  text-align: left !important;
 }
 
 .back-button:hover {
