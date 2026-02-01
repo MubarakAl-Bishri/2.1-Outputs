@@ -26,11 +26,19 @@ body {
 }
 
 // 5. Container & Fixed Left Border
-.container-lg, .main-content, .wrapper {
+// We target both classes together to beat any default theme specificity
+.container-lg.markdown-body, .main-content, .wrapper {
   background-color: var(--card-bg) !important;
+  
+  /* FORCE WIDTH: 95% of screen, but cap at 850px */
+  width: 95% !important;
   max-width: 850px !important;
+  
   margin: 40px auto !important;
-  padding: 40px !important;
+  
+  /* FORCE PADDING: 8px on sides as requested */
+  padding: 40px 8px !important;
+  
   border-radius: 12px !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
 
@@ -86,11 +94,30 @@ li {
   padding: 12px !important;
   background: #252525 !important;
   border-radius: 6px !important;
-  /* Hover border follows text direction (start side) */
-  border-inline-start: 3px solid transparent; 
   transition: all 0.2s ease !important;
-  direction: inherit !important;
-  text-align: start !important;
+  
+  /* CRITICAL FIX: 
+     Do NOT set 'direction' here. Let the HTML attribute [dir="..."] decide.
+     We force text-align to 'start' so it follows the direction.
+  */
+  text-align: start !important; 
+  
+  /* Default border (transparent until hover) */
+  border-inline-start: 3px solid transparent; 
+}
+
+/* EXPLICIT OVERRIDES 
+   These rules ensure that even if markdown-body tries to force LTR,
+   elements with a specific 'dir' attribute will fight back.
+*/
+li[dir="rtl"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+li[dir="ltr"] {
+  direction: ltr !important;
+  text-align: left !important;
 }
 
 li:hover {

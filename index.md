@@ -16,9 +16,11 @@ direction: "ltr"
         {% assign note_url = note.url | relative_url %}
         {% unless _seen_urls contains note_url %}
           
-          <li>
-            <a href="{{ note_url }}">{{ note.title }}</a>
-          </li>
+        {% assign item_dir = note.direction | default: 'ltr' %}
+
+        <li dir="{{ item_dir }}" class="note-item">
+          <a href="{{ note_url }}">{{ note.title }}</a>
+        </li>
 
           {% assign _seen_urls = _seen_urls | append: note_url | append: "," %}
         {% endunless %}
@@ -31,7 +33,9 @@ direction: "ltr"
 {% assign item_url = item.url | relative_url %}
 {% unless _seen_urls contains item_url %}
 
-          <li>
+          {% assign item_dir = item.direction | default: 'ltr' %}
+
+          <li dir="{{ item_dir }}" class="note-item">
             <a href="{{ item_url }}">{{ item.title }}</a>
           </li>
 
