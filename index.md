@@ -1,7 +1,7 @@
 ---
 layout: default
 title: All Notes
-direction: "ltr"
+direction: "auto"
 ---
 
 <h1 id="all-notes">All Notes</h1>

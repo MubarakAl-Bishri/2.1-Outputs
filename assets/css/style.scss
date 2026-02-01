@@ -36,8 +36,8 @@ body {
   
   margin: 40px auto !important;
   
-  /* FORCE PADDING: 8px on sides as requested */
-  padding: 40px 8px !important;
+  /* RESTORED PADDING: 40px looks better inside the card. */
+  padding: 40px !important;
   
   border-radius: 12px !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
@@ -50,15 +50,28 @@ body {
 
 // 6. Typography & Dynamic Text Alignment
 h1, h2, h3, h4, p, li, span, div, a {
-  /* Text aligns dynamically: Left for EN, Right for AR */
   text-align: start !important;
   direction: inherit !important;
 }
 
-/* Override markdown-body LTR forcing */
+/* Override markdown-body defaults */
 .markdown-body {
   direction: inherit !important;
   text-align: start !important;
+}
+
+/* --- STRICT ALIGNMENT FOR CONTENT WRAPPER --- */
+/* This forces the Note Text to obey the 'dir' we added in default.html */
+#content-wrapper[dir="rtl"],
+#content-wrapper[dir="rtl"] > * {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+#content-wrapper[dir="ltr"],
+#content-wrapper[dir="ltr"] > * {
+  direction: ltr !important;
+  text-align: left !important;
 }
 
 /* Ensure all elements respect page direction */
@@ -106,7 +119,7 @@ li {
   border-inline-start: 3px solid transparent; 
 }
 
-/* EXPLICIT OVERRIDES 
+/* EXPLICIT OVERRIDES FOR LIST ITEMS
    These rules ensure that even if markdown-body tries to force LTR,
    elements with a specific 'dir' attribute will fight back.
 */
@@ -149,7 +162,6 @@ blockquote {
 // 9. Content Wrapper
 #content-wrapper {
   display: block;
-  // direction: auto !important;
 }
 
 // 10. Back Button
@@ -279,8 +291,13 @@ code, pre {
   color: var(--secret-red);
 }
 
-/* Mobile Adjustments for Secret Section */
+/* Mobile Adjustments */
 @media (max-width: 600px) {
+  .container-lg.markdown-body {
+    padding: 20px !important; /* Reduce padding on small screens */
+    width: 98% !important;
+  }
+  
   .secret-container {
     padding: 30px 20px !important;
     margin: 20px auto !important;
