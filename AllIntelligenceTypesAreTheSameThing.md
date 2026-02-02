@@ -1,13 +1,9 @@
 ---
 layout: default
-fileName: All_Intelligence_Types_are_the_Same_Thing
-direction: "ltr"
-title: "All Types of Intelligence Are Actually Representing the Same Thing"
-tags:
-  - Ideas
+fileName: AllIntelligenceTypesAreTheSameThing
+direction: ltr
+title: All Types of Intelligence Are Actually Representing the Same Thing
 date-created: 2026-01-12
-toReview: true
-related_notes:
 ---
 
 I believe that all forms of intelligence—IQ, emotional intelligence, mobility intelligence, and so on—are essentially different expressions of a single underlying brain capability. This capability is the ability to notice patterns, link ideas, establish causation, and predict results. Different types of intelligence are simply the brain applied in different domains. IQ represents abstract and logical reasoning, emotional intelligence reflects social and emotional pattern recognition, and mobility intelligence shows up in motor coordination and body control. The way intelligence manifests is shaped not only by the brain’s raw potential but also by personality, preference, and environmental factors. While someone can shift the expression of their intelligence across domains, there are practical limits. All expressions of intelligence, even emotions, can be explained logically, as emotions are physical and chemical processes in the brain and body.

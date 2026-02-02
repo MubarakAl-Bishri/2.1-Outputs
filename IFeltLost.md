@@ -1,13 +1,9 @@
 ---
 layout: default
-fileName: I_Felt_Lost
+fileName: IFeltLost
 direction: "rtl"
 title: "شعرت بالضياع"
-tags:
-  -
 date-created: 2026-01-25
-toReview: True
-related_notes:
 ---
 
 شعرتُ بفقدان ذاتي منذ ثلاث سنوات. شعرتُ وكأن روحي وكياني قد سُلِبا. شعرتُ بفراغٍ مكبوت في صدري، يتمنى أن يرى نور الصباح ساكنَه، وهل من ساكن؟ قطعة لحمٍ تكسو العظام؛ جسدٌ فارغٌ، ضامٍ، يلهبُ ويحمى مراراً وتكراراً.
