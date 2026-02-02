@@ -18,7 +18,8 @@
 
 // 4. Global Body
 body {
-  font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
+  // font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
+  font-family: 'Amiri', serif !important;
   background-color: var(--bg-color) !important;
   background-image: radial-gradient(circle at center, #1e1e1e 0%, #121212 100%) !important;
   color: var(--text-primary) !important;
@@ -59,7 +60,8 @@ h1, h2, h3, h4, p, li, span, div, a {
 .markdown-body {
   direction: inherit !important;
   text-align: start !important;
-  font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
+  font-family: 'Amiri', serif !important;
+  // font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
 }
 
 /* --- STRICT ALIGNMENT FOR CONTENT WRAPPER --- */
