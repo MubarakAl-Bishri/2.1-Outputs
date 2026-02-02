@@ -18,88 +18,87 @@
 
 // 4. Global Body
 body {
-  // font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
-  font-family: 'Amiri', serif !important;
+  font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
   background-color: var(--bg-color) !important;
   background-image: radial-gradient(circle at center, #1e1e1e 0%, #121212 100%) !important;
   color: var(--text-primary) !important;
   line-height: 1.8 !important;
+  overflow-x: hidden !important;
 }
 
-// 5. Container & Fixed Left Border
-// We target both classes together to beat any default theme specificity
+// 5. Container & Main Wrapper
+// We target multiple classes to override theme specificity
 .container-lg.markdown-body, .main-content, .wrapper {
   background-color: var(--card-bg) !important;
   
-  /* FORCE WIDTH: 95% of screen, but cap at 850px */
+  /* Desktop Width */
   width: 95% !important;
-  max-width: 850px !important;
+  max-width: 800px !important; /* Matched to your 'Nineteen' file preference */
   
   margin: 40px auto !important;
-  
-  /* RESTORED PADDING: 40px looks better inside the card. */
-  padding: 40px !important;
+  padding: 60px 40px !important; /* Matched to 'Nineteen' file padding */
   
   border-radius: 12px !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
 
   /* FIXED BORDER ON THE LEFT */
-  /* Use logical inline borders so RTL/LTR both show the accent */
   border-inline-start: 4px solid var(--accent-color) !important;
   border-inline-end: none !important;
 }
 
-// 6. Typography & Dynamic Text Alignment
+// 6. Typography - Exact Match for "Nineteen" File
+// These rules force the markdown body to respect your specific design
+
+/* Global overrides for alignment */
 h1, h2, h3, h4, p, li, span, div, a {
   text-align: start !important;
   direction: inherit !important;
-  /* Add this to force inheritance if specific elements are resisting */
-  font-family: inherit !important; 
 }
-/* Override markdown-body defaults */
+
 .markdown-body {
   direction: inherit !important;
   text-align: start !important;
-  font-family: 'Amiri', serif !important;
-  // font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
+  font-family: 'Noto Sans Arabic', 'Inter', sans-serif !important;
+  color: var(--text-primary) !important;
 }
 
-/* --- STRICT ALIGNMENT FOR CONTENT WRAPPER --- */
-/* This forces the Note Text to obey the 'dir' we added in default.html */
-#content-wrapper[dir="rtl"],
-#content-wrapper[dir="rtl"] > * {
-  direction: rtl !important;
-  text-align: right !important;
-}
-
-#content-wrapper[dir="ltr"],
-#content-wrapper[dir="ltr"] > * {
-  direction: ltr !important;
-  text-align: left !important;
-}
-
-/* Ensure all elements respect page direction */
-html {
-  direction: inherit !important;
-}
-
-body {
-  direction: inherit !important;
-}
-
-h1, h2, h3 {
+/* Headers */
+.markdown-body h1, 
+.markdown-body h2, 
+.markdown-body h3 {
   font-family: 'Amiri', serif !important;
   color: #ffffff !important;
   border-bottom: 1px solid #333 !important;
-  padding-bottom: 0.3em !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 30px !important;
 }
 
-p {
-  font-size: 1.15rem !important;
+/* H1 Specific Size (Dynamic Clamp) */
+.markdown-body h1 {
+  font-size: clamp(2rem, 5vw, 3rem) !important;
+}
+
+/* Paragraphs - The "Nineteen" Look */
+.markdown-body p {
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+  font-size: 1.2rem !important;      /* Larger, readable size */
+  font-weight: 300 !important;       /* Light weight for elegance */
   color: var(--text-secondary) !important;
+  text-align: justify !important;    /* Clean block edges */
+  line-height: 1.8 !important;
+  margin-bottom: 16px !important;
 }
 
-// 7. List Styling (All Notes Section)
+/* Links */
+.markdown-body a {
+  color: var(--accent-color) !important;
+  text-decoration: none !important;
+}
+.markdown-body a:hover {
+  text-decoration: underline !important;
+}
+
+/* 7. List Styling (All Notes Section) */
 ul {
   list-style: none !important;
   padding: 0 !important;
@@ -112,30 +111,13 @@ li {
   background: #252525 !important;
   border-radius: 6px !important;
   transition: all 0.2s ease !important;
-  
-  /* CRITICAL FIX: 
-     Do NOT set 'direction' here. Let the HTML attribute [dir="..."] decide.
-     We force text-align to 'start' so it follows the direction.
-  */
   text-align: start !important; 
-  
-  /* Default border (transparent until hover) */
   border-inline-start: 3px solid transparent; 
 }
 
-/* EXPLICIT OVERRIDES FOR LIST ITEMS
-   These rules ensure that even if markdown-body tries to force LTR,
-   elements with a specific 'dir' attribute will fight back.
-*/
-li[dir="rtl"] {
-  direction: rtl !important;
-  text-align: right !important;
-}
-
-li[dir="ltr"] {
-  direction: ltr !important;
-  text-align: left !important;
-}
+/* Directional overrides for list items */
+li[dir="rtl"] { direction: rtl !important; text-align: right !important; }
+li[dir="ltr"] { direction: ltr !important; text-align: left !important; }
 
 li:hover {
   background: #2a2a2a !important;
@@ -148,14 +130,10 @@ li a {
   text-decoration: none !important;
   display: block;
 }
+li a:hover { color: #ffffff !important; } 
 
-li a:hover {
-  color: #ffffff !important;
-} 
-
-// 8. Blockquotes
+/* 8. Blockquotes */
 blockquote {
-  /* Use logical inline border so blockquotes show on the correct side for RTL */
   border-inline-start: 4px solid var(--secret-red) !important;
   border-inline-end: none !important;
   background-color: #1a1a1a !important;
@@ -163,12 +141,16 @@ blockquote {
   color: #999 !important;
 }
 
-// 9. Content Wrapper
-#content-wrapper {
-  display: block;
+/* 9. Utilities & Content Wrapper */
+#content-wrapper { display: block; }
+
+/* Highlight Utility */
+.highlight { 
+  color: var(--accent-color) !important; 
+  font-weight: 500 !important; 
 }
 
-// 10. Back Button
+/* 10. Back Button */
 .back-button {
   display: inline-block;
   margin-bottom: 20px !important;
@@ -182,14 +164,13 @@ blockquote {
   direction: ltr !important;
   text-align: left !important;
 }
-
 .back-button:hover {
   background-color: #2a2a2a !important;
   color: #ffffff !important;
   transform: translateX(-5px) !important;
 }
 
-// 11. Code blocks
+/* 11. Code Blocks */
 code, pre {
   background-color: #000000 !important;
   color: #d4af37 !important;
@@ -202,32 +183,21 @@ code, pre {
   border-inline-start: 3px solid var(--accent-color) !important;
 }
 
-// -----------------------------------------------------
-// 12. Special Feature: Secret Overlay & Utilities
-// -----------------------------------------------------
+/* ----------------------------------------------------- */
+/* 12. Special Feature: Secret Overlay */
+/* ----------------------------------------------------- */
 
-/* Highlight utility */
-.highlight { 
-  color: var(--accent-color) !important; 
-  font-weight: 500 !important; 
-}
-
-/* The Trigger Link */
 .secret-trigger {
   display: block;
   margin-top: 50px;
   text-align: center;
-  color: #3e3e3e2d; /* Subtle color as requested */
+  color: #3e3e3e2d; /* Subtle */
   cursor: pointer;
   transition: color 0.3s ease;
   font-family: 'Amiri', serif;
 }
+.secret-trigger:hover { color: var(--secret-red); }
 
-.secret-trigger:hover {
-  color: var(--secret-red);
-}
-
-/* The Overlay Background */
 #secret-overlay {
   position: fixed;
   top: 0;
@@ -238,11 +208,10 @@ code, pre {
   display: none; /* Hidden by default */
   overflow-y: auto;
   overflow-x: hidden;
-  z-index: 9999; /* Ensure it sits on top of everything */
+  z-index: 9999;
   padding: 0; 
 }
 
-/* The Secret Content Card */
 .secret-container {
   max-width: 750px;
   width: 90%; 
@@ -254,30 +223,27 @@ code, pre {
   box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
 
-/* Secret Typography */
 .secret-title {
   font-family: 'Amiri', serif !important;
   color: var(--secret-red) !important;
   font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
   margin-bottom: 40px !important;
   text-align: center !important;
-  border-bottom: none !important; /* Overriding global H2 border */
+  border-bottom: none !important;
 }
 
 .secret-text {
   font-family: 'Amiri', serif !important;
   color: #999 !important;
-  font-size: 1.3rem !important;
+  font-size: 1.3rem !important; /* Specific size from your file */
   line-height: 2.2 !important;
   text-align: justify !important;
 }
-
 .secret-text p {
-  color: #999 !important; /* Ensure paragraph color inside secret is distinct */
+  color: #999 !important;
   margin-bottom: 20px !important;
 }
 
-/* Close Button */
 .close-secret {
   display: block;
   margin: 60px auto 0;
@@ -289,18 +255,20 @@ code, pre {
   font-family: 'Noto Sans Arabic', sans-serif;
   transition: all 0.3s ease;
 }
-
 .close-secret:hover {
   border-color: var(--secret-red);
   color: var(--secret-red);
 }
 
-/* Mobile Adjustments */
+/* ----------------------------------------------------- */
+/* 13. Mobile Adjustments */
+/* ----------------------------------------------------- */
+
 @media (max-width: 600px) {
   .container-lg.markdown-body {
-    padding: 20px !important; 
+    padding: 20px !important; /* Reduce padding for mobile */
     
-    /* WIDTH FIX: 92% leaves room for margins */
+    /* WIDTH FIX: 92% leaves space on edges */
     width: 92% !important; 
     
     margin-top: 20px !important;
@@ -312,5 +280,10 @@ code, pre {
   .secret-container {
     padding: 30px 20px !important;
     margin: 20px auto !important;
+  }
+  
+  /* Ensure H1 doesn't break on very small screens */
+  .markdown-body h1 {
+    font-size: 2rem !important;
   }
 }
